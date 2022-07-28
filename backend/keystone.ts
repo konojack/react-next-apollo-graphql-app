@@ -6,6 +6,7 @@ import {
 } from '@keystone-next/keystone/session';
 import { User } from './schemas/User';
 import { Product } from './schemas/Products';
+import { ProductImage } from './schemas/ProductImage';
 import 'dotenv/config';
 
 const databaseURL =
@@ -43,13 +44,11 @@ export default withAuth(
       // Schema items go in here
       User,
       Product,
+      ProductImage,
     }),
     ui: {
       // show the admin UI only for people who pass this test
-      isAccessAllowed: ({ session }) => {
-        console.log(session);
-        return !!session?.data;
-      },
+      isAccessAllowed: ({ session }) => !!session?.data,
     },
     // TODO: add session values here
     session: withItemData(statelessSessions(sessionConfig), {
