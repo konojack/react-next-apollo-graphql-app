@@ -3,6 +3,7 @@ import React from 'react';
 import ItemStyles from './styles/ItemStyles';
 import PriceTagStyles from './styles/PriceTag';
 import TitleStyles from './styles/Title';
+import formatMoney from '../lib/formatMoney';
 
 export default function Product({ product }) {
   return (
@@ -14,7 +15,7 @@ export default function Product({ product }) {
       <TitleStyles>
         <Link href={`/product/${product.id}`}>{product.name}</Link>
       </TitleStyles>
-      <PriceTagStyles>{product.price}</PriceTagStyles>
+      <PriceTagStyles>{formatMoney(product.price)}</PriceTagStyles>
     </ItemStyles>
   );
 }
