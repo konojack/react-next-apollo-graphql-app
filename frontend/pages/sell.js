@@ -1,8 +1,9 @@
+import CreateProduct from '../components/CreateProduct';
+
 export default function SellPage() {
   return (
     <div>
-      SellPage
-      <button type="button">Example button</button>
+      <CreateProduct />
     </div>
   );
 }
